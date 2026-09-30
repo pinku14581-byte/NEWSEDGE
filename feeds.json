@@ -1,40 +1,7 @@
-{
-  "india": [
-    {
-      "name": "PIB",
-      "url": "https://pib.gov.in/RssMain.aspx?ModId=6&Lang=1&Regid=1",
-      "rights": "public_official_feed"
-    },
-    {
-      "name": "Indian Express India",
-      "url": "https://indianexpress.com/section/india/feed/",
-      "rights": "check_terms_before_publication"
-    }
-  ],
-  "legal": [
-    {
-      "name": "ET LegalWorld Litigation",
-      "url": "https://legal.economictimes.indiatimes.com/rss/litigation",
-      "rights": "check_terms_before_publication"
-    },
-    {
-      "name": "ET LegalWorld Law & Policy",
-      "url": "https://legal.economictimes.indiatimes.com/rss/law-policy",
-      "rights": "check_terms_before_publication"
-    }
-  ],
-  "odisha": [
-    {
-      "name": "Indian Express Bhubaneswar",
-      "url": "https://indianexpress.com/section/cities/bhubaneswar/feed/",
-      "rights": "check_terms_before_publication"
-    }
-  ],
-  "sports": [
-    {
-      "name": "Indian Express Cricket",
-      "url": "https://indianexpress.com/section/sports/cricket/feed/",
-      "rights": "check_terms_before_publication"
-    }
-  ]
-}
+[
+  {"name":"Google News India","url":"https://news.google.com/rss?hl=en-IN&gl=IN&ceid=IN:en","category":"India"},
+  {"name":"Google News Odisha","url":"https://news.google.com/rss/search?q=Odisha&hl=en-IN&gl=IN&ceid=IN:en","category":"Odisha"},
+  {"name":"Google News Legal","url":"https://news.google.com/rss/search?q=India%20Supreme%20Court%20OR%20High%20Court%20OR%20legal&hl=en-IN&gl=IN&ceid=IN:en","category":"Legal"},
+  {"name":"Google News Cricket","url":"https://news.google.com/rss/search?q=cricket%20India&hl=en-IN&gl=IN&ceid=IN:en","category":"Cricket"},
+  {"name":"Google News World","url":"https://news.google.com/rss?hl=en&gl=US&ceid=US:en","category":"World"}
+]
