@@ -1,0 +1,13 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEWSEDGE Auto</title>
+<style>
+body{font-family:Arial;margin:0;background:#f5f6f8;color:#111827}header{background:#fff;border-bottom:1px solid #ddd;padding:15px 18px;position:sticky;top:0}.logo{font-weight:900;font-size:24px}.logo i{color:#e31b23;font-style:normal}.logo b{background:#111827;color:#fff;padding:2px 6px}main{max-width:1050px;margin:20px auto;padding:0 15px}.bar{display:flex;gap:8px;overflow:auto;margin-bottom:18px}.bar button{border:0;background:#fff;padding:10px 14px;border-radius:20px;font-weight:700}.bar button.active{background:#111827;color:#fff}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:16px}.tag{font-size:11px;color:#e31b23;font-weight:800;text-transform:uppercase}.card h2{font-size:18px;line-height:1.2}.meta{font-size:12px;color:#64748b}.summary{color:#475569;line-height:1.45}a{color:inherit;text-decoration:none}@media(max-width:750px){.grid{grid-template-columns:1fr}}
+</style></head>
+<body><header><div class="logo"><i>NEWS</i> <b>EDGE</b></div></header>
+<main><h1>Latest News</h1><div class="bar" id="cats"></div><div class="grid" id="news"></div></main>
+<script>
+const cats=["All","India","Odisha","Legal","Sports"];let current="All";
+async function load(){let u="/api/news"+(current==="All"?"":"?category="+encodeURIComponent(current));let a=await fetch(u).then(r=>r.json());document.querySelector("#news").innerHTML=a.slice(0,60).map(x=>`<article class="card"><div class="tag">${x.category}</div><h2><a href="${x.link}" target="_blank" rel="noopener">${x.title}</a></h2><div class="meta">${x.source} • ${new Date(x.published).toLocaleString()}</div><p class="summary">${x.summary||"Open the source for details."}</p></article>`).join("")||"<p>No stories yet. Run the ingestion job.</p>"}
+document.querySelector("#cats").innerHTML=cats.map(c=>`<button class="${c===current?"active":""}" onclick="current='${c}';document.querySelectorAll('.bar button').forEach(b=>b.classList.remove('active'));this.classList.add('active');load()">${c}</button>`).join("");load();setInterval(load,60000);
+</script></body></html>
